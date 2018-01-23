@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+.text {
+  width: 183px;
+  color: #2F2F2F;
+  font-family: 'Open-Sans', Arial, sans-serif;
+  padding: 20px 40px;
+  border-bottom: 1px solid #E5E5E5;
+  white-space: nowrap;
+  overflow: hidden; }
+  .text h3 {
+    text-overflow: ellipsis; }
+
+/*# sourceMappingURL=styles.css.map */

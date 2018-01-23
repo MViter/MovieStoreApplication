@@ -1,0 +1,17 @@
+@import '../../theme/palette';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.text {
+  width: 183px;
+  color: $paletteColor5;
+  font-family: 'Open-Sans', Arial, sans-serif;
+  padding: 20px 40px;
+  border-bottom: 1px solid $paletteColor10;
+  white-space: nowrap;
+  overflow: hidden;
+
+  h3 {
+    text-overflow: ellipsis;
+  }
+
+}

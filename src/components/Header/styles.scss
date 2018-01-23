@@ -1,0 +1,31 @@
+@import '../../theme/palette';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+//
+//body {
+//  margin: 0;
+//  padding: 0;
+//  height: 2000px;
+//  background-color: #F0F0F0;
+//}
+
+.header {
+  background-color: $paletteColor2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .textContent {
+    color: $paletteColor11;
+    font-family: 'Open-Sans', Arial, sans-serif;
+    padding: 20px 40px;
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    h3 {
+      font-size: 26px;
+    }
+  }
+}
