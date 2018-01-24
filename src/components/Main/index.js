@@ -14,6 +14,12 @@ import AddButton from '../AddButton';
 
 export default class App extends Component {
 
+    // constructor () {
+    //     super();
+    //
+    //     this.addNewItem = ::this._addNewItem;
+    // }
+
     state = {
         posts: ['First item with customized long title',
             'Second Item',
@@ -21,22 +27,28 @@ export default class App extends Component {
         ]
     };
 
+    // _addNewItem () {
+    //     console.log('Hello');
+    // }
+
     render () {
         const style = {
             marginRight: 20,
             marginTop: 40
         };
 
-        const postsArray = this.state.posts.map((index) => <Item itemText = { index } />);
-        console.log(postsArray);
+        const postsArray = this.state.posts.map((index) => (<Item itemText = { index } />));
 
-        return <section>
+        return <section className = { Styles.mainContainer } >
             <Header />
             <div className = { Styles.container } >
                 <div className = { Styles.itemsContainer }>
                         { postsArray }
                 </div>
-                <AddButton secondary={true} style={style} />
+                <div className = { Styles.addButtonContainer } >
+
+                </div>
+                <AddButton secondary={true} style={style} onClick = { this.addBtn} />
             </div>
         </section>;
     }

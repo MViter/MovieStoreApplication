@@ -1,6 +1,13 @@
 @import '../../theme/palette';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+.itemContainer {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  justify-content: space-between;
+  border: 1px solid black;
+}
 .text {
   width: 183px;
   color: $paletteColor5;
@@ -9,9 +16,36 @@
   border-bottom: 1px solid $paletteColor10;
   white-space: nowrap;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
 
   h3 {
+    border: 1px solid orchid;
+    max-width: 252px;
+    overflow: hidden;
     text-overflow: ellipsis;
   }
 
+  .commentAmount {
+    border: 1px solid lawngreen;
+    display: inline-block;
+    background-color: $paletteColor2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: $paletteColor11;
+    font-weight: 900;
+    text-align: center;
+    line-height: 2.5;
+    position: absolute;
+    margin-left: 253px;
+    margin-top: -6px;
+  }
+
+}
+
+.deletButtonContainer {
+  border: 1px solid white;
+  margin: 15px;
+  clear: both;
 }
