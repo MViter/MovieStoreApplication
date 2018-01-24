@@ -3,42 +3,36 @@
   display: flex;
   flex-direction: row;
   white-space: nowrap;
-  justify-content: space-between;
-  border: 1px solid black; }
-
-.text {
-  width: 183px;
-  color: #2F2F2F;
-  font-family: 'Open-Sans', Arial, sans-serif;
-  padding: 20px 40px;
-  border-bottom: 1px solid #E5E5E5;
-  white-space: nowrap;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row; }
-  .text h3 {
-    border: 1px solid orchid;
-    max-width: 252px;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-  .text .commentAmount {
-    border: 1px solid lawngreen;
-    display: inline-block;
-    background-color: #1B1B3E;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: #fff;
-    font-weight: 900;
-    text-align: center;
-    line-height: 2.5;
-    position: absolute;
-    margin-left: 253px;
-    margin-top: -6px; }
-
-.deletButtonContainer {
-  border: 1px solid white;
-  margin: 15px;
-  clear: both; }
+  justify-content: space-between; }
+  .itemContainer .text {
+    width: 255px;
+    padding: 20px 40px;
+    border-bottom: 1px solid #E5E5E5;
+    white-space: nowrap;
+    overflow: hidden; }
+    .itemContainer .text h3 {
+      color: #2F2F2F;
+      font-family: 'Open-Sans', Arial, sans-serif;
+      max-width: 252px;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  .itemContainer .itemInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .itemContainer .itemInfo .commentsAmount {
+      font-family: 'Open-Sans', Arial, sans-serif;
+      display: inline-block;
+      background-color: #1B1B3E;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 900;
+      text-align: center;
+      line-height: 2.5;
+      margin-left: -30px; }
+    .itemContainer .itemInfo .deletButtonContainer {
+      margin: 15px; }
 
 /*# sourceMappingURL=styles.css.map */

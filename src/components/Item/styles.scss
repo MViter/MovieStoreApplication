@@ -6,46 +6,44 @@
   flex-direction: row;
   white-space: nowrap;
   justify-content: space-between;
-  border: 1px solid black;
-}
-.text {
-  width: 183px;
-  color: $paletteColor5;
-  font-family: 'Open-Sans', Arial, sans-serif;
-  padding: 20px 40px;
-  border-bottom: 1px solid $paletteColor10;
-  white-space: nowrap;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
 
-  h3 {
-    border: 1px solid orchid;
-    max-width: 252px;
+  .text {
+    width: 255px;
+    padding: 20px 40px;
+    border-bottom: 1px solid $paletteColor10;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+
+    h3 {
+      color: $paletteColor5;
+      font-family: 'Open-Sans', Arial, sans-serif;
+      max-width: 252px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
-  .commentAmount {
-    border: 1px solid lawngreen;
-    display: inline-block;
-    background-color: $paletteColor2;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: $paletteColor11;
-    font-weight: 900;
-    text-align: center;
-    line-height: 2.5;
-    position: absolute;
-    margin-left: 253px;
-    margin-top: -6px;
+  .itemInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .commentsAmount {
+      font-family: 'Open-Sans', Arial, sans-serif;
+      display: inline-block;
+      background-color: $paletteColor2;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: $paletteColor11;
+      font-weight: 900;
+      text-align: center;
+      line-height: 2.5;
+      margin-left: -30px;
+    }
+
+    .deletButtonContainer {
+      margin: 15px;
+    }
   }
-
-}
-
-.deletButtonContainer {
-  border: 1px solid white;
-  margin: 15px;
-  clear: both;
 }

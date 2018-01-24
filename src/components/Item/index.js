@@ -8,17 +8,16 @@ import DeleteButton from '../DeleteButton';
 
 export default class Item extends Component {
     render () {
-        const style = {
-            margin: 12,
-        };
-        console.log('props = ', this.props);
+
         return <section className = { Styles.itemContainer }>
                     <div className = { Styles.text} >
-                        <h3 className = { Styles.comment }>{this.props.itemText}</h3>
-                        <span className = { Styles.commentAmount }>0</span>
+                        <h3>{this.props.itemText}</h3>
                     </div>
-                    <div className = { Styles.deletButtonContainer } >
-                        <DeleteButton secondary={true} style={style} onClick = { this.addBtn} />
+                    <div className = { Styles.itemInfo } >
+                        <div className = { Styles.commentsAmount }>0</div>
+                        <div className = { Styles.deletButtonContainer } >
+                            <DeleteButton secondary={true} />
+                        </div>
                     </div>
                 </section>;
     }

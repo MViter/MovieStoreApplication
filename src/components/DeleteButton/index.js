@@ -2,7 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const style = {
-    marginLeft: 100
+    marginLeft: 0
 };
 
 const DeleteButton = () => (

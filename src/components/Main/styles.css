@@ -8,11 +8,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px;
-    min-width: 486px; }
+    min-width: 486px;
+    margin: 0 auto;
+    width: 600px; }
     .mainContainer .container .itemsContainer {
-      width: 30%;
-      border: 1px solid red; }
+      width: 80%;
+      min-width: 400px; }
     .mainContainer .container .addButtonContainer {
       margin-top: 40px; }
   .mainContainer .addButton {

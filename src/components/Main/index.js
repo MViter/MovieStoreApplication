@@ -23,7 +23,10 @@ export default class App extends Component {
     state = {
         posts: ['First item with customized long title',
             'Second Item',
-            'Third Item (short one)'
+            'Third Item (short one)',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam commodi consequatur esse illo\n' +
+            '\t\t\t\tmaiores omnis quo quos sint, totam vero voluptate. Aliquid assumenda debitis deserunt iste officiis\n' +
+            '\t\t\t\tpossimus temporibus?'
         ]
     };
 
@@ -48,7 +51,7 @@ export default class App extends Component {
                 <div className = { Styles.addButtonContainer } >
 
                 </div>
-                <AddButton secondary={true} style={style} onClick = { this.addBtn} />
+                <AddButton secondary={true} style={style} onClick = { alert('Hello') } />
             </div>
         </section>;
     }
