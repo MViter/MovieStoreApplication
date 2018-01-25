@@ -9,18 +9,24 @@ import Styles from './styles.scss';
 // Components
 import Header from '../Header';
 import Item from '../Item';
-import AddButton from '../AddButton';
+import SendButton from '../SendButton';
 
 
 export default class NewItem extends Component {
 
     render () {
 
+        const style = {
+            marginRight: 20,
+            marginTop: 40
+        };
+
         return <section>
             <Header />
             <div className = { Styles.container } >
+                <h1>New Items view</h1>
                 <div className = { Styles.newItemsCreationContainer }/>
-                <AddButton secondary={true} style={style} />
+                <SendButton secondary={true} style={style} />
             </div>
         </section>;
     }

@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import { NavLink } from 'react-router-dom'
 
 // Instruments
 import Styles from './styles.scss';
@@ -14,11 +15,11 @@ import AddButton from '../AddButton';
 
 export default class App extends Component {
 
-    // constructor () {
-    //     super();
-    //
-    //     this.addNewItem = ::this._addNewItem;
-    // }
+    constructor () {
+        super();
+
+        this.addNewItem = this._addNewItem.bind(this);
+    }
 
     state = {
         posts: ['First item with customized long title',
@@ -26,13 +27,14 @@ export default class App extends Component {
             'Third Item (short one)',
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam commodi consequatur esse illo\n' +
             '\t\t\t\tmaiores omnis quo quos sint, totam vero voluptate. Aliquid assumenda debitis deserunt iste officiis\n' +
-            '\t\t\t\tpossimus temporibus?'
+            '\t\t\t\tpossimus temporibus?',
+            'Knock knock knocking on the heaven`s door'
         ]
     };
 
-    // _addNewItem () {
-    //     console.log('Hello');
-    // }
+    _addNewItem () {
+         alert('Hello in _addNewItem');
+    }
 
     render () {
         const style = {
@@ -40,7 +42,9 @@ export default class App extends Component {
             marginTop: 40
         };
 
-        const postsArray = this.state.posts.map((index) => (<Item itemText = { index } />));
+        const postsArray = this.state.posts.map((index, i=0) => (<Item itemText = { index } index = { i++ } />));
+
+        console.log('$$$this.props', this.props);
 
         return <section className = { Styles.mainContainer } >
             <Header />
@@ -49,9 +53,10 @@ export default class App extends Component {
                         { postsArray }
                 </div>
                 <div className = { Styles.addButtonContainer } >
-
+                    <NavLink to='/newitem'>
+                        <AddButton secondary={true} style={style} />
+                    </NavLink>
                 </div>
-                <AddButton secondary={true} style={style} onClick = { alert('Hello') } />
             </div>
         </section>;
     }

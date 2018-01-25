@@ -4,6 +4,7 @@
   * .mainContainer {
     display: flex;
     align-items: center;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

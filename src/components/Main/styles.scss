@@ -1,10 +1,10 @@
 @import '../../theme/palette';
 
 .mainContainer {
-  width: 100%;
+  //width: 100%;
+  height: 900px;
   margin: 0;
   padding: 0;
-  height: 2000px;
   background-color: #F0F0F0;
 
   .container {
@@ -14,6 +14,8 @@
     min-width: 486px;
     margin: 0 auto;
     width: 600px;
+    height: 100%;
+    background-color: #fff;
 
     .itemsContainer {
       width: 80%;

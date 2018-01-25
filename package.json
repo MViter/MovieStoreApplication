@@ -42,6 +42,8 @@
     "react-dom": "^16.0.0",
     "react-error-overlay": "^1.0.10",
     "react-responsive": "^3.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.2.0",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",

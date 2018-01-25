@@ -7,12 +7,19 @@
   white-space: nowrap;
   justify-content: space-between;
 
+  a {
+    text-decoration: none;
+  }
+
   .text {
     width: 255px;
     padding: 20px 40px;
     border-bottom: 1px solid $paletteColor10;
     white-space: nowrap;
     overflow: hidden;
+    &:hover {
+      cursor: pointer;
+    }
 
     h3 {
       color: $paletteColor5;

@@ -4,12 +4,16 @@
   flex-direction: row;
   white-space: nowrap;
   justify-content: space-between; }
+  .itemContainer a {
+    text-decoration: none; }
   .itemContainer .text {
     width: 255px;
     padding: 20px 40px;
     border-bottom: 1px solid #E5E5E5;
     white-space: nowrap;
     overflow: hidden; }
+    .itemContainer .text:hover {
+      cursor: pointer; }
     .itemContainer .text h3 {
       color: #2F2F2F;
       font-family: 'Open-Sans', Arial, sans-serif;
