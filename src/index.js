@@ -1,7 +1,7 @@
 // Core
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Redirect } from 'react-router';
+import { Route, Router, Redirect } from 'react-router';
 import { BrowserRouter, HashRouter } from 'react-router-dom'
 
 // Containers
@@ -10,14 +10,24 @@ import Main from './components/Main';
 import NewItem from './components/NewItem';
 import Comments from './components/Comments';
 
-ReactDOM.render((
-    <BrowserRouter>
-        <Route component = { App } path='/'>
-            <Route exact component = { Main } path='/feed' />
-            <Route component = { NewItem } path = { '/feed/newitem'} />
-            <Route component = { Comments} path = { '/feed/comments/:id' } />
-            <Redirect component = { Main } to = { '/feed' } />
-        </Route>
-    </BrowserRouter>
+// ReactDOM.render((
+//     <BrowserRouter>
+//         <Router component = { App } path='/'>
+//             <Route exact component = { Main } path='/' />
+//             <Route component = { NewItem } path = { '/newitem'} />
+//             <Route component = { Comments} path = { '/comments/:id' } />
+//             <Redirect component = { Main } to = { '/' } />
+//         </Router>
+//     </BrowserRouter>
+//
+// ), document.getElementById('root'));
 
+ReactDOM.render((
+<BrowserRouter>
+    <App>
+        <Route exact component = { Main } path='/' />
+        <Route component = { NewItem } path = { '/newitem'} />
+        <Route component = { Comments} path = { '/comments/:id' } />
+    </App>
+</BrowserRouter>
 ), document.getElementById('root'));

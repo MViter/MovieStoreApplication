@@ -1,11 +1,11 @@
 @import '../../theme/palette';
 
 .mainContainer {
-  //width: 100%;
   height: 900px;
   margin: 0;
   padding: 0;
   background-color: #F0F0F0;
+  width: 100%;
 
   .container {
     display: flex;

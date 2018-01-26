@@ -13,12 +13,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 90px;
   //width: 100%;
 
   .textContent {
     color: $paletteColor11;
     font-family: 'Open-Sans', Arial, sans-serif;
-    padding: 20px 40px;
+    padding: 10px 40px;
 
     h1 {
       font-size: 36px;

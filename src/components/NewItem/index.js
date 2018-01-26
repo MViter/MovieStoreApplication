@@ -1,33 +1,91 @@
 // Core
 import React, {Component} from 'react';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import { NavLink } from 'react-router-dom'
 
 // Instruments
 import Styles from './styles.scss';
 
 // Components
-import Header from '../Header';
-import Item from '../Item';
 import SendButton from '../SendButton';
+import BackButton from '../BackButton';
 
 
 export default class NewItem extends Component {
 
+    constructor () {
+        super();
+
+        this.addItem = this._addItem.bind(this);
+        this.handleTextAreaChange = this._handleTextAreaChange.bind(this);
+    }
+
+    state = {
+        textAreaValue:     ''
+    };
+
+    _handleSubmit (event) {
+
+        event.preventDefault();
+
+        const { textAreaValue } = this.state;
+
+        if (!textAreaValue) {
+            return;
+        }
+
+        // this.props.createPost({
+        //     comment:   this.state.textAreaValue
+        // });
+
+        this.setState(() => ({
+            textAreaValue: ''
+        }));
+    }
+
+    _addItem () {
+        const currentText = this.state.textAreaValue || '';
+        let postlistStorage = JSON.parse(localStorage.getItem('Postlist')) || [];
+        const newPost = {'text': currentText, 'comments': []};
+        postlistStorage.push(newPost);
+        //postlistStorage = Array.from(postlistStorage);
+        console.log('^^^ postlistStorage', postlistStorage);
+        localStorage.setItem('Postlist', JSON.stringify(postlistStorage));
+        console.log('$$$ New postlistStorage = ', localStorage.getItem('Postlist'));
+    }
+
+    _handleTextAreaChange (event) {
+        const textAreaValue = event.target.value;
+        this.setState(() => ({
+            textAreaValue
+        }));
+    }
+
     render () {
 
-        const style = {
-            marginRight: 20,
-            marginTop: 40
-        };
-
-        return <section>
-            <Header />
-            <div className = { Styles.container } >
-                <h1>New Items view</h1>
-                <div className = { Styles.newItemsCreationContainer }/>
-                <SendButton secondary={true} style={style} />
-            </div>
-        </section>;
+        const { textAreaValue } = this.state;
+        return <section className = { Styles.new_item_container }>
+                    <div className = { Styles.header }>
+                        <NavLink to='/'>
+                            <div className = { Styles.back_btn_container} >
+                                <BackButton />
+                            </div>
+                        </NavLink>
+                        <div className = { Styles.text_container} >
+                            <p>Create new item</p>
+                        </div>
+                    </div>
+                    <div className = { Styles.content_container } >
+                        <textarea
+                            placeholder = { 'New Items title...' }
+                            value = { textAreaValue }
+                            onChange = { this.handleTextAreaChange }
+                        />
+                        <NavLink to='/'>
+                            <div className = { Styles.send_btn_container} onClick = { this.addItem} >
+                                <SendButton />
+                            </div>
+                        </NavLink>
+                    </div>
+                </section>;
     }
 }
