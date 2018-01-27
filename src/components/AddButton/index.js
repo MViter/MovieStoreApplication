@@ -2,13 +2,9 @@ import React from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-const style = {
-    marginRight: 20,
-};
-
 const AddButton = () => (
     <div>
-        <FloatingActionButton secondary={true} style={style}>
+        <FloatingActionButton secondary = { true }>
             <ContentAdd />
         </FloatingActionButton>
     </div>

@@ -12,7 +12,7 @@ import BackButton from '../BackButton';
 export default class NewItem extends Component {
 
     state = {
-        textAreaValue:     ''
+        textAreaValue:  ''
     };
 
     constructor () {

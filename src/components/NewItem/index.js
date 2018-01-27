@@ -1,6 +1,6 @@
 // Core
-import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 // Instruments
 import Styles from './styles.scss';
@@ -20,7 +20,7 @@ export default class NewItem extends Component {
     }
 
     state = {
-        textAreaValue:     ''
+        textAreaValue:  ''
     };
 
     _addItem () {
@@ -39,7 +39,6 @@ export default class NewItem extends Component {
     }
 
     render () {
-
         const { textAreaValue } = this.state;
         return <section className = { Styles.new_item_container }>
                     <div className = { Styles.header }>

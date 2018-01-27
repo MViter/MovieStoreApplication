@@ -1,6 +1,6 @@
 // Core
-import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 // Instruments
 import Styles from './styles.scss';
@@ -18,9 +18,9 @@ export default class App extends Component {
         this.forceUpdateHandler = this._forceUpdateHandler.bind(this);
     }
 
-    _forceUpdateHandler(){
+    _forceUpdateHandler () {
         this.forceUpdate();
-    };
+    }
 
     render () {
 
@@ -31,20 +31,21 @@ export default class App extends Component {
                 forceUpdateMain = { this.forceUpdateHandler }
                 text = { postsFromStorage[i].text }
                 index = { i++ }
+                key = { index }
             />));
 
-        return <section className = { Styles.mainContainer } >
+        return (<section className = { Styles.mainContainer } >
             <Header />
             <div className = { Styles.container } >
                 <div className = { Styles.itemsContainer }>
                         { postsArray }
                 </div>
                 <div className = { Styles.addButtonContainer } >
-                    <NavLink to='/newitem' >
+                    <NavLink to = '/newitem' >
                         <AddButton />
                     </NavLink>
                 </div>
             </div>
-        </section>;
+        </section>);
     }
 }
