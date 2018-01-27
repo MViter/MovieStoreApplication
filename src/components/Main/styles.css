@@ -1,9 +1,10 @@
 .mainContainer {
-  height: 900px;
+  height: 980px;
   margin: 0;
   padding: 0;
   background-color: #F0F0F0;
-  width: 100%; }
+  width: 100%;
+  top: 140px; }
   .mainContainer .container {
     display: flex;
     flex-direction: column;
@@ -12,7 +13,9 @@
     margin: 0 auto;
     width: 600px;
     height: 100%;
-    background-color: #fff; }
+    background-color: #fff;
+    top: 140px;
+    position: relative; }
     .mainContainer .container .itemsContainer {
       width: 80%;
       min-width: 400px; }

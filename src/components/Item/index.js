@@ -42,14 +42,14 @@ export default class Item extends Component {
     };
 
     render () {
-        const { itemText } = this.props;
+        const { text } = this.props;
 
-        return itemText === '' ?
+        return text === '' ?
             <section className = { Styles.itemContainer } />
             : <section className = { Styles.itemContainer }>
-                <NavLink to = { `/comments/${this.props.index}` } title = 'Open item with comments' itemText = { itemText } >
+                <NavLink to = { `/comments/${this.props.index}` } title = 'Open item with comments' text = { text } >
                     <div className = { Styles.text} >
-                        <h3>{ itemText }</h3>
+                        <h3>{ text }</h3>
                     </div>
                 </NavLink>
                 <div className = { Styles.itemInfo } >

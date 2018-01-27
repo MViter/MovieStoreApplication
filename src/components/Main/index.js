@@ -29,7 +29,7 @@ export default class App extends Component {
             <Item
                 amountOfComments = { postsFromStorage[i].comments.length }
                 forceUpdateMain = { this.forceUpdateHandler }
-                itemText = { postsFromStorage[i].text }
+                text = { postsFromStorage[i].text }
                 index = { i++ }
             />));
 

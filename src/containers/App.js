@@ -30,11 +30,29 @@ export default class App extends Component {
     componentDidMount () {
         const beginningPost = [
             {'text' : 'First item with customized long title', 'comments' : ['All you need is love', 'We are the champions', 'Knock knock knocking on the heaven`s door']},
-            {'text' : 'Second Item', 'comments' : ['Dolor sit amet, consectetur adipisicing elit']},
-            {'text' : 'Third Item', 'comments' : ['Lorem ipsum', 'Ipsum Lorem', 'A aliquam commodi']}
+            {'text' : 'Second Item', 'comments' : ['Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam commodi consequatur esse illo\n' +
+            '\t\t\t\tmaiores omnis quo quos sint, totam vero voluptate. Aliquid assumenda debitis deserunt iste officiis\n' +
+            '\t\t\t\tpossimus temporibus?']},
+            {'text' : 'Third Item (short one)', 'comments' : ['Lorem ipsum', 'Ipsum Lorem', 'A aliquam', 'commodi', 'Lorem', 'ipsum', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem']}
         ];
 
-        window.localStorage.setItem('Postlist', JSON.stringify(beginningPost));
+        // const beginningPost = [
+        //     {
+        //         text: 'First item with customized long title',
+        //         comments: [
+        //             'All you need is love',
+        //             'We are the champions',
+        //             'Knock knock knocking on the heaven`s door'
+        //         ]
+        //     },
+        //     {'text' : 'Second Item', 'comments' : ['Dolor sit amet, consectetur adipisicing elit']},
+        //     {'text' : 'Third Item', 'comments' : ['Lorem ipsum', 'Ipsum Lorem', 'A aliquam commodi']}
+        // ];
+
+
+        if(! localStorage.getItem('Postlist')) {
+            window.localStorage.setItem('Postlist', JSON.stringify(beginningPost));
+        }
     }
 
     render() {

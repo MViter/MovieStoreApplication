@@ -23,34 +23,12 @@ export default class NewItem extends Component {
         textAreaValue:     ''
     };
 
-    _handleSubmit (event) {
-
-        event.preventDefault();
-
-        const { textAreaValue } = this.state;
-
-        if (!textAreaValue) {
-            return;
-        }
-
-        // this.props.createPost({
-        //     comment:   this.state.textAreaValue
-        // });
-
-        this.setState(() => ({
-            textAreaValue: ''
-        }));
-    }
-
     _addItem () {
         const currentText = this.state.textAreaValue || '';
         let postlistStorage = JSON.parse(localStorage.getItem('Postlist')) || [];
         const newPost = {'text': currentText, 'comments': []};
         postlistStorage.push(newPost);
-        //postlistStorage = Array.from(postlistStorage);
-        console.log('^^^ postlistStorage', postlistStorage);
         localStorage.setItem('Postlist', JSON.stringify(postlistStorage));
-        console.log('$$$ New postlistStorage = ', localStorage.getItem('Postlist'));
     }
 
     _handleTextAreaChange (event) {
