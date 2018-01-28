@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://mviter.github.io/SayerApp/",
+  "homepage": "https://mviter.github.io/SayerApp",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
