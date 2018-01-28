@@ -20,19 +20,21 @@ export default class NewItem extends Component {
     }
 
     state = {
-        textAreaValue:  ''
+        textAreaValue: ''
     };
 
     _addItem () {
         const currentText = this.state.textAreaValue || '';
-        let postlistStorage = JSON.parse(localStorage.getItem('Postlist')) || [];
-        const newPost = {'text': currentText, 'comments': []};
-        postlistStorage.push(newPost);
-        localStorage.setItem('Postlist', JSON.stringify(postlistStorage));
+        const itemsStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
+        const newItem = { 'text': currentText, 'comments': []};
+
+        itemsStorage.push(newItem);
+        localStorage.setItem('Itemslist', JSON.stringify(itemsStorage));
     }
 
     _handleTextAreaChange (event) {
         const textAreaValue = event.target.value;
+
         this.setState(() => ({
             textAreaValue
         }));
@@ -40,29 +42,30 @@ export default class NewItem extends Component {
 
     render () {
         const { textAreaValue } = this.state;
-        return <section className = { Styles.new_item_container }>
-                    <div className = { Styles.header }>
-                        <NavLink to='/'>
-                            <div className = { Styles.back_btn_container} >
-                                <BackButton />
-                            </div>
-                        </NavLink>
-                        <div className = { Styles.text_container} >
-                            <p>Create new item</p>
-                        </div>
+
+        return (<section className = { Styles.new_item_container }>
+            <div className = { Styles.header }>
+                <NavLink to = '/'>
+                    <div className = { Styles.back_btn_container } >
+                        <BackButton />
                     </div>
-                    <div className = { Styles.content_container } >
-                        <textarea
-                            placeholder = { 'New Items title...' }
-                            value = { textAreaValue }
-                            onChange = { this.handleTextAreaChange }
-                        />
-                        <NavLink to='/'>
-                            <div className = { Styles.send_btn_container} onClick = { this.addItem} >
-                                <SendButton />
-                            </div>
-                        </NavLink>
+                </NavLink>
+                <div className = { Styles.text_container } >
+                    <p>Create new item</p>
+                </div>
+            </div>
+            <div className = { Styles.content_container } >
+                <textarea
+                    placeholder = { 'New Items title...' }
+                    value = { textAreaValue }
+                    onChange = { this.handleTextAreaChange }
+                />
+                <NavLink to = '/'>
+                    <div className = { Styles.send_btn_container } onClick = { this.addItem } >
+                        <SendButton />
                     </div>
-                </section>;
+                </NavLink>
+            </div>
+        </section>);
     }
 }

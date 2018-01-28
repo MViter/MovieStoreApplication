@@ -24,23 +24,23 @@ export default class App extends Component {
 
     render () {
 
-        const postsFromStorage = JSON.parse(localStorage.getItem('Postlist')) || [];
-        const postsArray = postsFromStorage.map((index, i=0) => (
+        const itemsFromStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
+        const itemsArray = itemsFromStorage.map((index, i=0) => (
             <Item
-                amountOfComments = { postsFromStorage[i].comments.length }
+                amountOfComments = { itemsFromStorage[i].comments.length }
                 forceUpdateMain = { this.forceUpdateHandler }
-                text = { postsFromStorage[i].text }
+                text = { itemsFromStorage[i].text }
+                key = { i }
                 index = { i++ }
-                key = { index }
             />));
 
-        return (<section className = { Styles.mainContainer } >
+        return (<section className = { Styles.main_container } >
             <Header />
             <div className = { Styles.container } >
-                <div className = { Styles.itemsContainer }>
-                        { postsArray }
+                <div className = { Styles.items_container }>
+                    { itemsArray }
                 </div>
-                <div className = { Styles.addButtonContainer } >
+                <div className = { Styles.addbtn_container } >
                     <NavLink to = '/newitem' >
                         <AddButton />
                     </NavLink>

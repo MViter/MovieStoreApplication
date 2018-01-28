@@ -1,6 +1,6 @@
 @import '../../theme/palette';
 
-.mainContainer {
+.main_container {
   height: 980px;
   margin: 0;
   padding: 0;
@@ -20,40 +20,13 @@
     top: 140px;
     position: relative;
 
-    .itemsContainer {
+    .items_container {
       width: 80%;
       min-width: 400px;
     }
 
-    .addButtonContainer {
+    .addbtn_container {
       margin-top: 40px;
-    }
-
-  }
-
-  .addButton {
-    height: 40px;
-    width: 40px;
-    border: 1px solid $paletteColor9;
-    background-color: $paletteColor9;
-    color: $paletteColor11;
-    border-radius: 50%;
-    box-shadow: 10px 10px $paletteColor10;
-    padding: 10px;
-    margin: 0 auto;
-
-    &:after {
-      content: '+';
-      font-size: 72px;
-      font-weight: 900;
-      padding: 0 0 -1px 90px;
-      position: relative;
-      top: -20px;
-    }
-
-    &:hover {
-      cursor: pointer;
-      top: -10px;
     }
   }
 }

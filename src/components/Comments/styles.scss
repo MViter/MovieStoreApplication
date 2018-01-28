@@ -21,22 +21,28 @@
     position: fixed;
     z-index: 999;
 
-    .text_container {
-      color: $paletteColor11;
-      font-family: 'Open-Sans', Arial, sans-serif;
-      font-size: 32px;
-      font-weight: 400;
-      width: 393px;
-      padding: 0 0;
-      height: 78%;
-      word-break: break-word;
-      overflow: hidden;
-    }
+    .header_content {
+      display: flex;
+      flex-direction: row;
+      max-width: 600px;
+      width: 95%;
+      min-width: 300px;
 
-    .back_btn_container {
-      position: relative;
-      left: -45px;
-      top: 50%;
+      .text_container {
+        color: $paletteColor11;
+        font-family: 'Open-Sans', Arial, sans-serif;
+        font-size: 32px;
+        font-weight: 400;
+        width: 393px;
+        padding: 0 0 0 40px;
+        height: 78%;
+        word-break: break-word;
+        overflow: hidden;
+      }
+
+      .back_btn_container {
+        position: relative;
+      }
     }
   }
 
@@ -44,11 +50,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 486px;
-    margin: 0 auto;
     width: 600px;
-    background-color: #fff;
     min-height: 700px;
+    margin: 0 auto;
+    background-color: #fff;
     overflow: hidden;
     overflow-y: scroll;
     position: relative;
@@ -66,14 +71,14 @@
         width: 100px;
         height: 100px;
         box-sizing: border-box;
+      }
 
-        &:nth-child(odd) {
-          background-color: $paletteColor9;
-        }
+      &:nth-of-type(2n) .comment_avatar {
+        background-color: $paletteColor8;
+      }
 
-        &:nth-child(3n) {
-          background-color: $paletteColor4;
-        }
+      &:nth-of-type(2n+1) .comment_avatar {
+        background-color: $paletteColor4;
       }
 
       .comment_text {
@@ -94,9 +99,10 @@
     flex-direction: row;
     align-self: center;
     justify-content: center;
-    min-width: 486px;
+    max-width: 600px;
+    width: 95%;
+    min-width: 300px;
     margin: 0 auto;
-    width: 600px;
     background-color: #F0F0F0;
     position: fixed;
     bottom: 0;

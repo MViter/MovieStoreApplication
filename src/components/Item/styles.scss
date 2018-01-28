@@ -1,7 +1,7 @@
 @import '../../theme/palette';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.itemContainer {
+.item_container {
   display: flex;
   flex-direction: row;
   white-space: nowrap;
@@ -17,6 +17,7 @@
     border-bottom: 1px solid $paletteColor10;
     white-space: nowrap;
     overflow: hidden;
+
     &:hover {
       cursor: pointer;
     }
@@ -30,12 +31,12 @@
     }
   }
 
-  .itemInfo {
+  .item_info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .commentsAmount {
+    .comments_amount {
       font-family: 'Open-Sans', Arial, sans-serif;
       display: inline-block;
       background-color: $paletteColor2;
@@ -49,7 +50,7 @@
       margin-left: -30px;
     }
 
-    .deletButtonContainer {
+    .deletbtn_container {
       margin: 15px;
     }
   }
