@@ -9,15 +9,14 @@ import Styles from './styles.scss';
 import SendButton from '../SendButton';
 import BackButton from '../BackButton';
 
-export default class NewItem extends Component {
+export default class Comments extends Component {
 
     constructor () {
         super();
 
         this.handleSubmit = this._handleSubmit.bind(this);
         this.addComment = this._addComment.bind(this);
-        this.getCurrentItemComments = this._getCurrentItemComments.bind(this);
-        this.getCurrentItemText = this._getCurrentItemText.bind(this);
+        this.getCurrentItem = this._getCurrentItem.bind(this);
         this.handleTextAreaChange = this._handleTextAreaChange.bind(this);
     }
 
@@ -39,13 +38,16 @@ export default class NewItem extends Component {
 
     _addComment () {
         const currentText = this.state.textAreaValue || '';
-        const itemsStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
-        const itemId = this.props.match.params.id; // eslint-disable-line
-        const currentItemComments = itemsStorage[itemId].comments;
 
-        currentItemComments.push(currentText);
-        itemsStorage[itemId].comments = currentItemComments;
-        localStorage.setItem('Itemslist', JSON.stringify(itemsStorage));
+        if (currentText !== '') {
+            const itemsStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
+            const itemId = parseInt(this.props.match.params.id);
+            //const currentItem = itemsStorage.find((item) => ((item.id === itemId) || (() => { alert('Error! corresponding item have not been found.'); return 0;})));
+
+            const currentItem = itemsStorage.find((item) => ((item.id === itemId)));
+            currentItem.comments.push(currentText);
+            localStorage.setItem('itemsList', JSON.stringify(itemsStorage));
+        }
     }
 
     _handleTextAreaChange (event) {
@@ -56,24 +58,15 @@ export default class NewItem extends Component {
         }));
     }
 
-    _getCurrentItemComments () {
-        const itemsStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
-        const itemId = this.props.match.params.id; // eslint-disable-line
-
-        return itemsStorage[itemId].comments;
-    }
-
-    _getCurrentItemText () {
-        const itemsStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
-        const itemId = this.props.match.params.id; // eslint-disable-line
-
-        return itemsStorage[itemId].text;
+    _getCurrentItem () {
+        const itemsStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
+        const itemId = this.props.match.params.id;
+        return itemsStorage[itemId];
     }
 
     render () {
-
-        const itemText = this.getCurrentItemText();
-        const commentsArray = this.getCurrentItemComments().map((comment) => (<div className = { Styles.single_comment } key = { this.props.match.params.id } >
+        const itemText = this.getCurrentItem().text;
+        const commentsArray = this.getCurrentItem().comments.map((comment) => (<div className = { Styles.single_comment } key = { this.props.match.params.id } >
             <div className = { Styles.comment_avatar } />
             <div className = { Styles.comment_text } >{comment}</div>
         </div>)

@@ -24,14 +24,14 @@ export default class App extends Component {
 
     render () {
 
-        const itemsFromStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
-        const itemsArray = itemsFromStorage.map((index, i=0) => (
+        const itemsFromStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
+        const itemsArray = itemsFromStorage.map((item, index) => (
             <Item
-                amountOfComments = { itemsFromStorage[i].comments.length }
+                amountOfComments = { itemsFromStorage[index].comments.length }
                 forceUpdateMain = { this.forceUpdateHandler }
-                text = { itemsFromStorage[i].text }
-                key = { i }
-                index = { i++ }
+                id = { item.id }
+                key = { index }
+                text = { itemsFromStorage[index].text }
             />));
 
         return (<section className = { Styles.main_container } >

@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 // Instruments
 import Styles from './styles.scss';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import defaultData from './data.js';
+import getDefaultData from './data.js';
 
 export default class App extends Component {
     componentDidMount () {
-        const beginingPosts = defaultData();
+        const beginingPosts = getDefaultData();
 
-        if (!localStorage.getItem('Itemslist')) {
-            window.localStorage.setItem('Itemslist', JSON.stringify(beginingPosts));
+        if (!localStorage.getItem('itemsList')) {
+            window.localStorage.setItem('itemsList', JSON.stringify(beginingPosts));
         }
     }
 

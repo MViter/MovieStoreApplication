@@ -1,14 +1,20 @@
-const defaultData = () => [
-    { 'text':     'First item with customized long title',
-        'comments': [
+const getDefaultData = () => [
+    {
+        id:       0,
+        text:     'First item with customized long title',
+        comments: [
             'All you need is love',
             'Knock knock knocking on the heaven`s door']
     },
-    { 'text':     'Second Item',
-        'comments': []
+    {
+        id:       1,
+        text :    'Second Item',
+        comments: []
     },
-    { 'text':     'Third Item (short one)',
-        'comments': [
+    {
+        id:       2,
+        text:     'Third Item (short one)',
+        comments: [
             'Lorem ipsum',
             'Ipsum Lorem',
             'A aliquam',
@@ -30,4 +36,4 @@ const defaultData = () => [
             'consectetur adipisicing elit']}
 ];
 
-export default defaultData;
+export default getDefaultData;

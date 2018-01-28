@@ -25,11 +25,15 @@ export default class NewItem extends Component {
 
     _addItem () {
         const currentText = this.state.textAreaValue || '';
-        const itemsStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
-        const newItem = { 'text': currentText, 'comments': []};
-
+        const itemsStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
+        const itemsStorageSortedById = itemsStorage.sort(this.compareById);
+        const idOfTheLastElement = itemsStorageSortedById.length-1;
+        const nextItemId = idOfTheLastElement !== -1 ?
+            itemsStorageSortedById[idOfTheLastElement].id + 1
+            : 0;
+        const newItem = { id: nextItemId, text: currentText, comments: []};
         itemsStorage.push(newItem);
-        localStorage.setItem('Itemslist', JSON.stringify(itemsStorage));
+        localStorage.setItem('itemsList', JSON.stringify(itemsStorage));
     }
 
     _handleTextAreaChange (event) {
@@ -38,6 +42,17 @@ export default class NewItem extends Component {
         this.setState(() => ({
             textAreaValue
         }));
+    }
+
+    compareById (item1, item2) {
+        if (item1.id < item2.id) {
+            return -1;
+        }
+        if (item1.id > item2.id) {
+            return 1;
+        }
+
+        return 0;
     }
 
     render () {

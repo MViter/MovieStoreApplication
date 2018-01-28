@@ -12,7 +12,6 @@ export default class Item extends Component {
     static propTypes = {
         amountOfComments: PropTypes.number.isRequired,
         forceUpdateMain:  PropTypes.func.isRequired,
-        index:            PropTypes.number.isRequired,
         text:             PropTypes.string.isRequired
     };
 
@@ -24,11 +23,11 @@ export default class Item extends Component {
     }
 
     _deleteItem () {
-        const indexItemToBeDeleted = this.props.index;
-        const currentItemsStorage = JSON.parse(localStorage.getItem('Itemslist')) || [];
-        const updatedItemsStorage  = currentItemsStorage.filter((index, item) => item !== indexItemToBeDeleted);
+        const indexItemToBeDeleted = this.props.id;
+        const currentItemsStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
+        const updatedItemsStorage  = currentItemsStorage.filter((item) => item.id !== indexItemToBeDeleted);
 
-        localStorage.setItem('Itemslist', JSON.stringify(updatedItemsStorage));
+        localStorage.setItem('itemsList', JSON.stringify(updatedItemsStorage));
         this.forceUpdateHandler();
     }
 
@@ -42,7 +41,7 @@ export default class Item extends Component {
         return text === '' ?
             <section className = { Styles.item_container } />
             : <section className = { Styles.item_container }>
-                <NavLink text = { text } title = 'Open item with comments' to = { `/comments/${this.props.index}` }>
+                <NavLink text = { text } title = 'Open item with comments' to = { `/comments/${this.props.id}` }>
                     <div className = { Styles.text } >
                         <h3>{ text }</h3>
                     </div>
