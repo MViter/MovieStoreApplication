@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://github.com/MViter/SayerApp/blob/master/README.md",
+  "homepage": "https://mviter.github.io/SayerApp/",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
@@ -28,6 +28,7 @@
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
     "fs-extra": "3.0.1",
+    "gh-pages": "^1.1.0",
     "gsap": "^1.20.2",
     "html-webpack-plugin": "2.29.0",
     "indent-string": "^3.2.0",
@@ -60,7 +61,9 @@
     "start": "npm run start-js",
     "test": "node scripts/test.js --env=jsdom",
     "setup": "sh scripts/setup.sh",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",
