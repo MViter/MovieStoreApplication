@@ -8,6 +8,7 @@ import Styles from './styles.scss';
 // Components
 import SendButton from '../SendButton';
 import BackButton from '../BackButton';
+import Header from '../Header';
 
 export default class Comments extends Component {
 
@@ -42,9 +43,8 @@ export default class Comments extends Component {
         if (currentText !== '') {
             const itemsStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
             const itemId = parseInt(this.props.match.params.id);
-            //const currentItem = itemsStorage.find((item) => ((item.id === itemId) || (() => { alert('Error! corresponding item have not been found.'); return 0;})));
-
-            const currentItem = itemsStorage.find((item) => ((item.id === itemId)));
+            const currentItem = itemsStorage.find(item => item.id === itemId);
+            
             currentItem.comments.push(currentText);
             localStorage.setItem('itemsList', JSON.stringify(itemsStorage));
         }
@@ -60,8 +60,8 @@ export default class Comments extends Component {
 
     _getCurrentItem () {
         const itemsStorage = JSON.parse(localStorage.getItem('itemsList')) || [];
-        const itemId = this.props.match.params.id;
-        return itemsStorage[itemId];
+        const itemId = parseInt(this.props.match.params.id);
+        return itemsStorage.find((item) => item.id === itemId);
     }
 
     render () {
@@ -73,18 +73,7 @@ export default class Comments extends Component {
         );
 
         return (<section className = { Styles.comments_container }>
-            <div className = { Styles.header }>
-                <div className = { Styles.header_content }>
-                    <NavLink to = '/'>
-                        <div className = { Styles.back_btn_container } >
-                            <BackButton />
-                        </div>
-                    </NavLink>
-                    <div className = { Styles.text_container } >
-                        <div>{ itemText }</div>
-                    </div>
-                </div>
-            </div>
+                <Header isMainHeader = { false } itemText = { itemText } />
             <div className = { Styles.content_container } >
                 { commentsArray }
             </div>

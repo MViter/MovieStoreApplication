@@ -7,8 +7,7 @@ import Styles from './styles.scss';
 
 // Components
 import SendButton from '../SendButton';
-import BackButton from '../BackButton';
-
+import Header from '../Header';
 
 export default class NewItem extends Component {
 
@@ -32,6 +31,7 @@ export default class NewItem extends Component {
             itemsStorageSortedById[idOfTheLastElement].id + 1
             : 0;
         const newItem = { id: nextItemId, text: currentText, comments: []};
+
         itemsStorage.push(newItem);
         localStorage.setItem('itemsList', JSON.stringify(itemsStorage));
     }
@@ -59,16 +59,7 @@ export default class NewItem extends Component {
         const { textAreaValue } = this.state;
 
         return (<section className = { Styles.new_item_container }>
-            <div className = { Styles.header }>
-                <NavLink to = '/'>
-                    <div className = { Styles.back_btn_container } >
-                        <BackButton />
-                    </div>
-                </NavLink>
-                <div className = { Styles.text_container } >
-                    <p>Create new item</p>
-                </div>
-            </div>
+            <Header isMainHeader = { false } />
             <div className = { Styles.content_container } >
                 <textarea
                     placeholder = { 'New Items title...' }

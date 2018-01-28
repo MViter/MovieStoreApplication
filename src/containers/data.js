@@ -8,7 +8,7 @@ const getDefaultData = () => [
     },
     {
         id:       1,
-        text :    'Second Item',
+        text:     'Second Item',
         comments: []
     },
     {

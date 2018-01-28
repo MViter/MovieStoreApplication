@@ -35,7 +35,11 @@ export default class App extends Component {
             />));
 
         return (<section className = { Styles.main_container } >
-            <Header />
+            <Header
+                isMainHeader = { true }
+                slogan = { 'Worlds most used time waster' }
+                title = { 'Sayer' }
+            />
             <div className = { Styles.container } >
                 <div className = { Styles.items_container }>
                     { itemsArray }
